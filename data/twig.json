@@ -1,0 +1,405 @@
+{
+	"descricao": "Filtros y tags de Twig propios de los temas de Tiendanube / Nuvemshop. Escritos a mano a partir de la referencia oficial (sin licencia abierta: solo nombres, parámetros y enlaces, con descripción propia). `tema` dice dónde vale: sectionable, classic o los dos.",
+	"consultado": "2026-11-05",
+	"fontes": {
+		"filtros": "https://nuvemshop.dev/en-US/themes/twig-reference/filters-methods",
+		"twig": "https://nuvemshop.dev/en-US/themes/twig-reference/twig",
+		"sections": "https://nuvemshop.dev/en-US/themes/sectionable-themes/sections",
+		"blocks": "https://nuvemshop.dev/en-US/themes/sectionable-themes/blocks",
+		"layouts": "https://nuvemshop.dev/en-US/themes/sectionable-themes/layouts",
+		"templates": "https://nuvemshop.dev/en-US/themes/sectionable-themes/templates",
+		"classicos": "https://nuvemshop.dev/en-US/themes/classic-themes/theme-architecture/layouts-templates",
+		"listado_classico": "https://nuvemshop.dev/en-US/themes/classic-themes/theme-features/product-listing"
+	},
+	"filtros": [
+		{
+			"nome": "raw",
+			"corpo": "raw",
+			"descricao": "Imprime el valor sin escapar. Solo con contenido confiable, nunca con datos del comprador.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "t",
+			"corpo": "t",
+			"descricao": "Traduce una clave de translations/<locale>.json al idioma actual.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "translate",
+			"corpo": "translate",
+			"descricao": "Traduce un texto de translations.txt (temas clásicos; en los seccionables es t).",
+			"fonte": "filtros",
+			"tema": "classic"
+		},
+		{
+			"nome": "money",
+			"corpo": "money",
+			"descricao": "Formatea un número como precio, con la moneda y los decimales de la tienda.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "static_url",
+			"corpo": "static_url",
+			"descricao": "Convierte una ruta de static/ en la URL completa del CDN.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "css_tag",
+			"corpo": "css_tag",
+			"descricao": "Envuelve una URL en una etiqueta <link rel=\"stylesheet\">.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "script_tag",
+			"corpo": "script_tag(${1:false})",
+			"descricao": "Envuelve una URL en una etiqueta <script>; con true, la carga es async.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "img_tag",
+			"corpo": "img_tag(${1:alt}, {class: '${2:clase}'})",
+			"descricao": "Envuelve una URL en una etiqueta <img>, con texto alternativo y atributos opcionales.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "a_tag",
+			"corpo": "a_tag(${1:url}, '${2:título}', '${3:clase}')",
+			"descricao": "Envuelve el contenido en un enlace <a>: URL, título y clase CSS.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "product_image_url",
+			"corpo": "product_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')",
+			"descricao": "URL de una imagen de producto en el tamaño pedido.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "settings_image_url",
+			"corpo": "settings_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')",
+			"descricao": "URL de una imagen elegida en un setting image_picker, en el tamaño pedido.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "category_image_url",
+			"corpo": "category_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')",
+			"descricao": "URL de la imagen de una categoría en el tamaño pedido.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "has_custom_image",
+			"corpo": "has_custom_image",
+			"descricao": "Dice si la imagen fue subida en el personalizador del tema.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "is_external",
+			"corpo": "is_external",
+			"descricao": "Dice si un enlace del menú apunta fuera de la tienda.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "take",
+			"corpo": "take(${1:6})",
+			"descricao": "Toma solo los primeros N elementos de una colección.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "shuffle",
+			"corpo": "shuffle",
+			"descricao": "Reordena una colección al azar.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "highlight",
+			"corpo": "highlight(${1:query})",
+			"descricao": "Envuelve en <strong> el texto que coincide con la búsqueda.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		},
+		{
+			"nome": "block_attributes",
+			"corpo": "block_attributes",
+			"descricao": "Atributos que el editor usa para seleccionar el bloque. Va en el elemento raíz de cada bloque.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "resolve_media",
+			"corpo": "resolve_media",
+			"descricao": "Convierte el valor de un image_picker (@media-lib:...) en un objeto con sourceUrl.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "add_param",
+			"corpo": "add_param('${1:clave}', ${2:valor})",
+			"descricao": "Agrega un parámetro de query a una URL.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "sanitize",
+			"corpo": "sanitize",
+			"descricao": "Limpia un texto para usarlo en atributos e ids de HTML.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "json_encode",
+			"corpo": "json_encode",
+			"descricao": "Convierte un valor en texto JSON.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "static_inline",
+			"corpo": "static_inline",
+			"descricao": "Inserta el contenido de un archivo de static/ dentro de la página, por ejemplo el CSS crítico.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "payment_new_logo",
+			"corpo": "payment_new_logo",
+			"descricao": "URL del logo de un medio de pago.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "format_address",
+			"corpo": "format_address",
+			"descricao": "Dirección completa, en varias líneas.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "format_address_short",
+			"corpo": "format_address_short",
+			"descricao": "Dirección abreviada, en una línea.",
+			"fonte": "filtros",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "google_fonts_url",
+			"corpo": "google_fonts_url('${1:300, 400, 700}')",
+			"descricao": "URL de Google Fonts para una lista de fuentes del tema, con los pesos pedidos.",
+			"fonte": "filtros",
+			"tema": "ambos"
+		}
+	],
+	"tags": [
+		{
+			"nome": "set",
+			"prefixo": "set",
+			"corpo": [
+				"{% set ${1:nombre} = ${2:valor} %}"
+			],
+			"descricao": "Guarda un valor en una variable.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "if",
+			"prefixo": "if",
+			"corpo": [
+				"{% if ${1:condición} %}",
+				"\t$0",
+				"{% endif %}"
+			],
+			"descricao": "Condicional.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "if else",
+			"prefixo": "ifelse",
+			"corpo": [
+				"{% if ${1:condición} %}",
+				"\t$2",
+				"{% else %}",
+				"\t$0",
+				"{% endif %}"
+			],
+			"descricao": "Condicional con else.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "for",
+			"prefixo": "for",
+			"corpo": [
+				"{% for ${1:item} in ${2:colección} %}",
+				"\t$0",
+				"{% endfor %}"
+			],
+			"descricao": "Recorre una colección; dentro, loop.index, loop.first y loop.last.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "comentario",
+			"prefixo": "comment",
+			"corpo": [
+				"{# $0 #}"
+			],
+			"descricao": "Comentario de Twig, que no llega al HTML.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "snippet",
+			"prefixo": "snippet",
+			"corpo": [
+				"{% snippet \"${1:carpeta/archivo}.tpl\" %}"
+			],
+			"descricao": "Incluye un snippet sin parámetros; la ruta es relativa a snippets/.",
+			"fonte": "twig",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "snipplet",
+			"prefixo": "snipplet",
+			"corpo": [
+				"{% snipplet \"${1:archivo}.tpl\" %}"
+			],
+			"descricao": "Incluye un snipplet de un tema clásico (carpeta snipplets/, con L).",
+			"fonte": "twig",
+			"tema": "classic"
+		},
+		{
+			"nome": "include",
+			"prefixo": "include",
+			"corpo": [
+				"{% include \"snippets/${1:archivo}.tpl\" with {${2:clave}: ${3:valor}} %}"
+			],
+			"descricao": "Incluye un snippet pasando variables con with; la ruta empieza en snippets/.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "embed",
+			"prefixo": "embed",
+			"corpo": [
+				"{% embed \"snippets/${1:archivo}.tpl\" with {${2:clave}: ${3:valor}} %}",
+				"\t{% block ${4:nombre} %}",
+				"\t\t$0",
+				"\t{% endblock ${4:nombre} %}",
+				"{% endembed %}"
+			],
+			"descricao": "Como include, pero rellena los block que el snippet declara.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "block",
+			"prefixo": "block",
+			"corpo": [
+				"{% block ${1:nombre} %}",
+				"\t$0",
+				"{% endblock ${1:nombre} %}"
+			],
+			"descricao": "Declara o rellena un espacio de un snippet usado con embed.",
+			"fonte": "twig",
+			"tema": "ambos"
+		},
+		{
+			"nome": "paginate",
+			"prefixo": "paginate",
+			"corpo": [
+				"{% paginate by ${1:12} %}"
+			],
+			"descricao": "Cantidad de productos por página en el listado.",
+			"fonte": "listado_classico",
+			"tema": "classic"
+		},
+		{
+			"nome": "layout_template",
+			"prefixo": "layout_template",
+			"corpo": [
+				"{% layout_template '${1|header,footer|}' %}"
+			],
+			"descricao": "Renderiza el header o el footer de templates/layout/ en layouts/layout.tpl.",
+			"fonte": "layouts",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "template_content",
+			"prefixo": "template_content",
+			"corpo": [
+				"{% template_content %}"
+			],
+			"descricao": "Inserta el contenido de la página en layouts/layout.tpl de un tema clásico.",
+			"fonte": "classicos",
+			"tema": "classic"
+		},
+		{
+			"nome": "page_template_content",
+			"prefixo": "page_template_content",
+			"corpo": [
+				"{{ page_template_content }}"
+			],
+			"descricao": "Renderiza el template JSON de la página en layouts/layout.tpl.",
+			"fonte": "layouts",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "platform_head_content",
+			"prefixo": "platform_head_content",
+			"corpo": [
+				"{% platform_head_content %}"
+			],
+			"descricao": "Lo que la plataforma inyecta en el <head>. Va antes de cerrar </head>.",
+			"fonte": "layouts",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "platform_body_content",
+			"prefixo": "platform_body_content",
+			"corpo": [
+				"{% platform_body_content %}"
+			],
+			"descricao": "Lo que la plataforma inyecta en el <body>. Va antes de cerrar </body>.",
+			"fonte": "layouts",
+			"tema": "sectionable"
+		},
+		{
+			"nome": "head_content",
+			"prefixo": "head_content",
+			"corpo": [
+				"{% head_content %}"
+			],
+			"descricao": "Contenido del <head> que la plataforma arma en los temas clásicos.",
+			"fonte": "classicos",
+			"tema": "classic"
+		},
+		{
+			"nome": "schema",
+			"prefixo": "schema",
+			"corpo": [
+				"{% schema %}",
+				"{",
+				"\t$0",
+				"}",
+				"{% endschema %}"
+			],
+			"descricao": "Bloque {% schema %} vacío, al final de una section o un bloque.",
+			"fonte": "sections",
+			"tema": "sectionable"
+		}
+	]
+}

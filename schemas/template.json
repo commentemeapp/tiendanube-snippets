@@ -1,0 +1,47 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://schemas.tiendanube-snippets.local/template.json",
+	"title": "Template JSON de un tema seccionable de Tiendanube / Nuvemshop (templates/pages y templates/layout)",
+	"description": "Escrito a partir de https://nuvemshop.dev/en-US/themes/sectionable-themes/templates.",
+	"type": "object",
+	"required": ["sections", "order"],
+	"properties": {
+		"sections": {
+			"type": "object",
+			"description": "Sections por id de instancia, libre y único en la página.",
+			"additionalProperties": { "$ref": "#/definitions/instancia" }
+		},
+		"order": {
+			"type": "array",
+			"description": "Orden en que se renderizan las sections, por id de instancia.",
+			"items": { "type": "string" },
+			"uniqueItems": true
+		}
+	},
+	"definitions": {
+		"instancia": {
+			"type": "object",
+			"required": ["type"],
+			"properties": {
+				"type": {
+					"type": "string",
+					"minLength": 1,
+					"description": "Nombre del archivo en sections/ o blocks/, sin la extensión .tpl."
+				},
+				"settings": { "type": "object", "description": "Valores de los settings declarados en el {% schema %}." },
+				"disabled": { "type": "boolean" },
+				"blocks": {
+					"type": "object",
+					"description": "Bloques hijos por id de instancia, con la misma estructura.",
+					"additionalProperties": { "$ref": "#/definitions/instancia" }
+				},
+				"block_order": {
+					"type": "array",
+					"description": "Orden de los bloques dentro del padre, por id de instancia.",
+					"items": { "type": "string" },
+					"uniqueItems": true
+				}
+			}
+		}
+	}
+}

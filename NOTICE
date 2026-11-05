@@ -1,0 +1,11 @@
+Snippets for Tiendanube
+Copyright (c) 2026 José Luiz Rodrigues (commente.me). Licencia MIT (ver LICENSE).
+
+data/twig.json y schemas/ están escritos a mano a partir de la documentación
+oficial para desarrolladores de Tiendanube / Nuvemshop (https://nuvemshop.dev/en-US/,
+consultada el 2026-11-05). Esa documentación no tiene licencia abierta: este
+proyecto toma solo nombres, parámetros y estructuras, con descripciones propias
+y el enlace a cada página. No se copia texto de ella.
+
+Tiendanube y Nuvemshop son marcas de sus dueños. Este proyecto no está afiliado
+a Tiendanube ni a Nuvemshop, ni cuenta con su respaldo.

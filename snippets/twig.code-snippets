@@ -1,0 +1,335 @@
+{
+	"tag set": {
+		"prefix": "set",
+		"body": [
+			"{% set ${1:nombre} = ${2:valor} %}"
+		],
+		"description": "Guarda un valor en una variable.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag if": {
+		"prefix": "if",
+		"body": [
+			"{% if ${1:condición} %}",
+			"\t$0",
+			"{% endif %}"
+		],
+		"description": "Condicional.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag if else": {
+		"prefix": "ifelse",
+		"body": [
+			"{% if ${1:condición} %}",
+			"\t$2",
+			"{% else %}",
+			"\t$0",
+			"{% endif %}"
+		],
+		"description": "Condicional con else.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag for": {
+		"prefix": "for",
+		"body": [
+			"{% for ${1:item} in ${2:colección} %}",
+			"\t$0",
+			"{% endfor %}"
+		],
+		"description": "Recorre una colección; dentro, loop.index, loop.first y loop.last.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag comentario": {
+		"prefix": "comment",
+		"body": [
+			"{# $0 #}"
+		],
+		"description": "Comentario de Twig, que no llega al HTML.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag snippet": {
+		"prefix": "snippet",
+		"body": [
+			"{% snippet \"${1:carpeta/archivo}.tpl\" %}"
+		],
+		"description": "Incluye un snippet sin parámetros; la ruta es relativa a snippets/. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag snipplet": {
+		"prefix": "snipplet",
+		"body": [
+			"{% snipplet \"${1:archivo}.tpl\" %}"
+		],
+		"description": "Incluye un snipplet de un tema clásico (carpeta snipplets/, con L). (temas clásicos)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag include": {
+		"prefix": "include",
+		"body": [
+			"{% include \"snippets/${1:archivo}.tpl\" with {${2:clave}: ${3:valor}} %}"
+		],
+		"description": "Incluye un snippet pasando variables con with; la ruta empieza en snippets/.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag embed": {
+		"prefix": "embed",
+		"body": [
+			"{% embed \"snippets/${1:archivo}.tpl\" with {${2:clave}: ${3:valor}} %}",
+			"\t{% block ${4:nombre} %}",
+			"\t\t$0",
+			"\t{% endblock ${4:nombre} %}",
+			"{% endembed %}"
+		],
+		"description": "Como include, pero rellena los block que el snippet declara.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag block": {
+		"prefix": "block",
+		"body": [
+			"{% block ${1:nombre} %}",
+			"\t$0",
+			"{% endblock ${1:nombre} %}"
+		],
+		"description": "Declara o rellena un espacio de un snippet usado con embed.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/twig"
+	},
+	"tag paginate": {
+		"prefix": "paginate",
+		"body": [
+			"{% paginate by ${1:12} %}"
+		],
+		"description": "Cantidad de productos por página en el listado. (temas clásicos)\nhttps://nuvemshop.dev/en-US/themes/classic-themes/theme-features/product-listing"
+	},
+	"tag layout_template": {
+		"prefix": "layout_template",
+		"body": [
+			"{% layout_template '${1|header,footer|}' %}"
+		],
+		"description": "Renderiza el header o el footer de templates/layout/ en layouts/layout.tpl. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/sectionable-themes/layouts"
+	},
+	"tag template_content": {
+		"prefix": "template_content",
+		"body": [
+			"{% template_content %}"
+		],
+		"description": "Inserta el contenido de la página en layouts/layout.tpl de un tema clásico. (temas clásicos)\nhttps://nuvemshop.dev/en-US/themes/classic-themes/theme-architecture/layouts-templates"
+	},
+	"tag page_template_content": {
+		"prefix": "page_template_content",
+		"body": [
+			"{{ page_template_content }}"
+		],
+		"description": "Renderiza el template JSON de la página en layouts/layout.tpl. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/sectionable-themes/layouts"
+	},
+	"tag platform_head_content": {
+		"prefix": "platform_head_content",
+		"body": [
+			"{% platform_head_content %}"
+		],
+		"description": "Lo que la plataforma inyecta en el <head>. Va antes de cerrar </head>. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/sectionable-themes/layouts"
+	},
+	"tag platform_body_content": {
+		"prefix": "platform_body_content",
+		"body": [
+			"{% platform_body_content %}"
+		],
+		"description": "Lo que la plataforma inyecta en el <body>. Va antes de cerrar </body>. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/sectionable-themes/layouts"
+	},
+	"tag head_content": {
+		"prefix": "head_content",
+		"body": [
+			"{% head_content %}"
+		],
+		"description": "Contenido del <head> que la plataforma arma en los temas clásicos. (temas clásicos)\nhttps://nuvemshop.dev/en-US/themes/classic-themes/theme-architecture/layouts-templates"
+	},
+	"tag schema": {
+		"prefix": "schema",
+		"body": [
+			"{% schema %}",
+			"{",
+			"\t$0",
+			"}",
+			"{% endschema %}"
+		],
+		"description": "Bloque {% schema %} vacío, al final de una section o un bloque. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/sectionable-themes/sections"
+	},
+	"filtro raw": {
+		"prefix": "|raw",
+		"body": [
+			"| raw"
+		],
+		"description": "Imprime el valor sin escapar. Solo con contenido confiable, nunca con datos del comprador.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro t": {
+		"prefix": "|t",
+		"body": [
+			"| t"
+		],
+		"description": "Traduce una clave de translations/<locale>.json al idioma actual. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro translate": {
+		"prefix": "|translate",
+		"body": [
+			"| translate"
+		],
+		"description": "Traduce un texto de translations.txt (temas clásicos; en los seccionables es t). (temas clásicos)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro money": {
+		"prefix": "|money",
+		"body": [
+			"| money"
+		],
+		"description": "Formatea un número como precio, con la moneda y los decimales de la tienda.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro static_url": {
+		"prefix": "|static_url",
+		"body": [
+			"| static_url"
+		],
+		"description": "Convierte una ruta de static/ en la URL completa del CDN.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro css_tag": {
+		"prefix": "|css_tag",
+		"body": [
+			"| css_tag"
+		],
+		"description": "Envuelve una URL en una etiqueta <link rel=\"stylesheet\">.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro script_tag": {
+		"prefix": "|script_tag",
+		"body": [
+			"| script_tag(${1:false})"
+		],
+		"description": "Envuelve una URL en una etiqueta <script>; con true, la carga es async.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro img_tag": {
+		"prefix": "|img_tag",
+		"body": [
+			"| img_tag(${1:alt}, {class: '${2:clase}'})"
+		],
+		"description": "Envuelve una URL en una etiqueta <img>, con texto alternativo y atributos opcionales.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro a_tag": {
+		"prefix": "|a_tag",
+		"body": [
+			"| a_tag(${1:url}, '${2:título}', '${3:clase}')"
+		],
+		"description": "Envuelve el contenido en un enlace <a>: URL, título y clase CSS.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro product_image_url": {
+		"prefix": "|product_image_url",
+		"body": [
+			"| product_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')"
+		],
+		"description": "URL de una imagen de producto en el tamaño pedido.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro settings_image_url": {
+		"prefix": "|settings_image_url",
+		"body": [
+			"| settings_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')"
+		],
+		"description": "URL de una imagen elegida en un setting image_picker, en el tamaño pedido.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro category_image_url": {
+		"prefix": "|category_image_url",
+		"body": [
+			"| category_image_url('${1|tiny,small,medium,large,huge,original,1080p|}')"
+		],
+		"description": "URL de la imagen de una categoría en el tamaño pedido. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro has_custom_image": {
+		"prefix": "|has_custom_image",
+		"body": [
+			"| has_custom_image"
+		],
+		"description": "Dice si la imagen fue subida en el personalizador del tema.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro is_external": {
+		"prefix": "|is_external",
+		"body": [
+			"| is_external"
+		],
+		"description": "Dice si un enlace del menú apunta fuera de la tienda.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro take": {
+		"prefix": "|take",
+		"body": [
+			"| take(${1:6})"
+		],
+		"description": "Toma solo los primeros N elementos de una colección.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro shuffle": {
+		"prefix": "|shuffle",
+		"body": [
+			"| shuffle"
+		],
+		"description": "Reordena una colección al azar.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro highlight": {
+		"prefix": "|highlight",
+		"body": [
+			"| highlight(${1:query})"
+		],
+		"description": "Envuelve en <strong> el texto que coincide con la búsqueda.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro block_attributes": {
+		"prefix": "|block_attributes",
+		"body": [
+			"| block_attributes"
+		],
+		"description": "Atributos que el editor usa para seleccionar el bloque. Va en el elemento raíz de cada bloque. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro resolve_media": {
+		"prefix": "|resolve_media",
+		"body": [
+			"| resolve_media"
+		],
+		"description": "Convierte el valor de un image_picker (@media-lib:...) en un objeto con sourceUrl. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro add_param": {
+		"prefix": "|add_param",
+		"body": [
+			"| add_param('${1:clave}', ${2:valor})"
+		],
+		"description": "Agrega un parámetro de query a una URL. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro sanitize": {
+		"prefix": "|sanitize",
+		"body": [
+			"| sanitize"
+		],
+		"description": "Limpia un texto para usarlo en atributos e ids de HTML. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro json_encode": {
+		"prefix": "|json_encode",
+		"body": [
+			"| json_encode"
+		],
+		"description": "Convierte un valor en texto JSON. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro static_inline": {
+		"prefix": "|static_inline",
+		"body": [
+			"| static_inline"
+		],
+		"description": "Inserta el contenido de un archivo de static/ dentro de la página, por ejemplo el CSS crítico. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro payment_new_logo": {
+		"prefix": "|payment_new_logo",
+		"body": [
+			"| payment_new_logo"
+		],
+		"description": "URL del logo de un medio de pago. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro format_address": {
+		"prefix": "|format_address",
+		"body": [
+			"| format_address"
+		],
+		"description": "Dirección completa, en varias líneas. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro format_address_short": {
+		"prefix": "|format_address_short",
+		"body": [
+			"| format_address_short"
+		],
+		"description": "Dirección abreviada, en una línea. (temas seccionables)\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	},
+	"filtro google_fonts_url": {
+		"prefix": "|google_fonts_url",
+		"body": [
+			"| google_fonts_url('${1:300, 400, 700}')"
+		],
+		"description": "URL de Google Fonts para una lista de fuentes del tema, con los pesos pedidos.\nhttps://nuvemshop.dev/en-US/themes/twig-reference/filters-methods"
+	}
+}
