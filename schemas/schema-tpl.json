@@ -1,0 +1,345 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://schemas.tiendanube-snippets.local/schema-tpl.json",
+	"title": "{% schema %} de una section o un bloque de un tema seccionable de Tiendanube / Nuvemshop",
+	"description": "Escrito a partir de https://nuvemshop.dev/en-US/themes/sectionable-themes/schema-reference, /sections y /blocks. Conservador: las claves que no conoce no son error.",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string",
+			"minLength": 1
+		},
+		"icon": {
+			"type": "string"
+		},
+		"wrapper": {
+			"type": "string"
+		},
+		"class": {
+			"type": "string"
+		},
+		"static": {
+			"type": "boolean"
+		},
+		"limit": {
+			"type": "integer",
+			"minimum": 1
+		},
+		"add_section_order": {
+			"type": "integer",
+			"minimum": 1
+		},
+		"max_blocks": {
+			"type": "integer",
+			"minimum": 0
+		},
+		"deletable": {
+			"type": "boolean"
+		},
+		"tags": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"enabled_on": {
+			"type": "object",
+			"properties": {
+				"page_templates": {
+					"anyOf": [
+						{
+							"const": "all"
+						},
+						{
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					]
+				},
+				"layout_templates": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"settings": {
+			"$ref": "#/definitions/settings"
+		},
+		"blocks": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/bloqueAceito"
+			}
+		},
+		"presets": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/preset"
+			}
+		},
+		"default": {
+			"$ref": "#/definitions/preset"
+		}
+	},
+	"definitions": {
+		"settings": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/setting"
+			}
+		},
+		"opcoes": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"required": [
+					"value"
+				],
+				"properties": {
+					"value": {},
+					"label": {
+						"type": "string"
+					},
+					"icon": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"setting": {
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"enum": [
+						"setting",
+						"header",
+						"paragraph"
+					]
+				},
+				"id": {
+					"type": "string",
+					"minLength": 1
+				},
+				"setting_type": {
+					"type": "string",
+					"minLength": 1
+				},
+				"label": {
+					"type": "string"
+				},
+				"info": {
+					"type": "string"
+				},
+				"content": {
+					"type": "string"
+				},
+				"visible_if": {
+					"type": "string"
+				},
+				"disabled_if": {
+					"type": "string"
+				},
+				"default_setting": {
+					"type": "string"
+				},
+				"header_toggle": {
+					"type": "boolean"
+				},
+				"options": {
+					"$ref": "#/definitions/opcoes"
+				},
+				"vertical_options": {
+					"$ref": "#/definitions/opcoes"
+				},
+				"min": {
+					"type": "number"
+				},
+				"max": {
+					"type": "number"
+				},
+				"step": {
+					"type": "number",
+					"exclusiveMinimum": 0
+				},
+				"unit": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"const": "setting"
+							}
+						},
+						"required": [
+							"type"
+						]
+					},
+					"then": {
+						"required": [
+							"setting_type",
+							"id"
+						]
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"enum": [
+									"header",
+									"paragraph"
+								]
+							}
+						},
+						"required": [
+							"type"
+						]
+					},
+					"then": {
+						"required": [
+							"content"
+						]
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"setting_type": {
+								"enum": [
+									"select",
+									"radio",
+									"alignment"
+								]
+							}
+						},
+						"required": [
+							"setting_type"
+						]
+					},
+					"then": {
+						"required": [
+							"options"
+						]
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"setting_type": {
+								"const": "range"
+							}
+						},
+						"required": [
+							"setting_type"
+						]
+					},
+					"then": {
+						"required": [
+							"min",
+							"max"
+						]
+					}
+				}
+			]
+		},
+		"bloqueAceito": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string",
+					"minLength": 1
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"minItems": 1
+				},
+				"name": {
+					"type": "string"
+				},
+				"limit": {
+					"type": "integer",
+					"minimum": 1
+				},
+				"deletable": {
+					"type": "boolean"
+				},
+				"settings": {
+					"$ref": "#/definitions/settings"
+				},
+				"blocks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/bloqueAceito"
+					}
+				}
+			},
+			"anyOf": [
+				{
+					"required": [
+						"type"
+					]
+				},
+				{
+					"required": [
+						"tags"
+					]
+				}
+			]
+		},
+		"preset": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"category": {
+					"type": "string"
+				},
+				"settings": {
+					"type": "object"
+				},
+				"blocks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/blocoDePreset"
+					}
+				}
+			}
+		},
+		"blocoDePreset": {
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"minLength": 1
+				},
+				"settings": {
+					"type": "object"
+				},
+				"blocks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/blocoDePreset"
+					}
+				}
+			}
+		}
+	}
+}
