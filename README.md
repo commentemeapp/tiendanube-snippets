@@ -1,13 +1,12 @@
-<p align="center">
-	<img src="assets/banner.png" width="100%" alt="Snippets for Tiendanube · Snippets de Twig y validación del schema para temas de Tiendanube y Nuvemshop.">
-</p>
+![Snippets for Tiendanube · Snippets de Twig y validación del schema para temas de Tiendanube y Nuvemshop.](.github/assets/banner.png)
 
 # Snippets for Tiendanube
 
 **Snippets de Twig y validación del schema para temas de Tiendanube y Nuvemshop.**
 
-[![versión](https://img.shields.io/github/package-json/v/commentemeapp/tiendanube-snippets/main?label=versi%C3%B3n&labelColor=005278&color=FFBD38)](https://marketplace.visualstudio.com/items?itemName=commenteme.tiendanube-snippets)
-[![licencia](https://img.shields.io/github/license/commentemeapp/tiendanube-snippets?label=licencia&labelColor=005278&color=FFBD38)](./LICENSE)
+[![versión](https://badgen.net/vs-marketplace/v/commenteme.tiendanube-snippets?color=005278)](https://marketplace.visualstudio.com/items?itemName=commenteme.tiendanube-snippets)
+[![instalaciones](https://badgen.net/vs-marketplace/i/commenteme.tiendanube-snippets)](https://marketplace.visualstudio.com/items?itemName=commenteme.tiendanube-snippets)
+[![licencia](https://badgen.net/github/license/commentemeapp/tiendanube-snippets)](./LICENSE)
 
 ## Instalación
 
@@ -113,6 +112,4 @@ versión.
 
 [MIT](LICENSE). De dónde salen los datos, en [NOTICE](NOTICE).
 
----
-
-Hecho por [commente.me](https://www.commente.me) · hablecon@commente.me
+_Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
