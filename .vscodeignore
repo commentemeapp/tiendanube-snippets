@@ -26,3 +26,8 @@ node_modules/ajv/lib/**
 node_modules/jsonc-parser/lib/esm/**
 images/icon.svg
 assets/**
+node_modules/@img/**
+node_modules/@emnapi/**
+node_modules/sharp/**
+node_modules/detect-libc/**
+node_modules/semver/**

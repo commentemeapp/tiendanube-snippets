@@ -48,8 +48,8 @@ em Markdown (`https://nuvemshop.dev/en-US/<caminho>.md`) servem para ler.
 
 Kit da commente.me (skill `marca-commente`): ícone de produto para devs (`images/icon.svg`) com destaque **amarelo**
 `#FFBD38`, porque Tiendanube não tem cor de plataforma na marca, e glifo `</>`; cabeçalho do Marketplace
-`#005278` com `theme: dark` (regra para produto sem plataforma). README no padrão Atacama, header em
-`assets/banner.png` (fora do .vsix), assinatura «Hecho por commente.me · hablecon@commente.me».
+`#005278` com `theme: dark` (regra para produto sem plataforma). README no Atacama 2.0 e na skill `readme-padrao`: banner em
+`.github/assets/banner.png` (fora do .vsix), três badges do badgen e a assinatura da casa.
 
 ## Comandos
 
