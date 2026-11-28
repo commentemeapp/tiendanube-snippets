@@ -4,28 +4,24 @@
 
 **Snippets de Twig y validación del schema para temas de Tiendanube y Nuvemshop.**
 
-[![versión](https://badgen.net/vs-marketplace/v/commenteme.tiendanube-snippets?color=005278)](https://marketplace.visualstudio.com/items?itemName=commenteme.tiendanube-snippets)
-[![instalaciones](https://badgen.net/vs-marketplace/i/commenteme.tiendanube-snippets)](https://marketplace.visualstudio.com/items?itemName=commenteme.tiendanube-snippets)
-[![licencia](https://badgen.net/github/license/commentemeapp/tiendanube-snippets)](./LICENSE)
+Versión 0.1.0 · en desarrollo. Cambios en [CHANGELOG.md](CHANGELOG.md).
 
 ## Instalación
 
-En Quick Open de VS Code (`Cmd/Ctrl + P`):
-
-```
-ext install commenteme.tiendanube-snippets
+```bash
+code --install-extension commenteme.tiendanube-snippets
 ```
 
-Desde el terminal, `code --install-extension commenteme.tiendanube-snippets`. En el Marketplace aparece como
-**«Snippets for Tiendanube»**. Requiere VS Code `>= 1.60.0`.
+O en Quick Open de VS Code (`Cmd/Ctrl + P`): `ext install commenteme.tiendanube-snippets`. En el Marketplace aparece como
+**«Snippets for Tiendanube»**.
 
-## Uso rápido
+## Uso
 
 En un `sections/*.tpl` de tu tema seccionable, escribe `section-file` y Tab: entra la section completa, con el
 recorrido de bloques y el `{% schema %}` con preset. Dentro del schema, `setting-range` inserta un setting válido, y
 cualquier error queda subrayado mientras escribes.
 
-## Que incluye
+### Que incluye
 
 - **Tags y filtros de Twig** propios de Tiendanube y Nuvemshop como snippets, con el enlace a la referencia oficial y
   la marca de si valen para temas seccionables, clásicos o los dos.
@@ -37,15 +33,13 @@ cualquier error queda subrayado mientras escribes.
 Funciona en todos los `.tpl`, también en los temas clásicos (FTP). La extensión registra el lenguaje `twig` para
 `.tpl` y convive con otras extensiones de Twig.
 
-## Por que existe
+### Por que existe
 
 Tiendanube publica su documentación para desarrolladores, Agent Skills para editar temas con el CLI y un MCP para
 operar la tienda, pero nada para escribir el tema en el editor. Esta extensión cubre eso, como las de VTEX IO, Shopify
 y Adobe Commerce de la misma familia. La documentación oficial no tiene licencia abierta ni un esquema publicado: los
 datos de `data/twig.json` y los esquemas de `schemas/` están escritos a mano a partir de ella, con descripciones
 propias y el enlace a cada página.
-
-## Documentación
 
 ### Tags y filtros de Twig
 
@@ -76,7 +70,7 @@ del nombre del filtro (`|money`, `|static_url`, `|block_attributes`...).
 
 ### Settings
 
-`setting-` más el tipo, con guion: `setting-text`, `setting-range`, `setting-select`, `setting-alignment`,
+`setting-` mas el tipo, con guion: `setting-text`, `setting-range`, `setting-select`, `setting-alignment`,
 `setting-image-picker`, `setting-video-url`, `setting-custom-code`... Cada uno entra con todas las claves que el tipo
 necesita (`options` en `select`, `min` y `max` en `range`, los dos ejes en `alignment`).
 
@@ -87,14 +81,18 @@ En `sections/*.tpl` y `blocks/*.tpl`:
 - **Error**: JSON inválido; setting sin `id` o sin `setting_type`; `header` o `paragraph` sin `content`; `select`,
   `radio` o `alignment` sin `options`; `range` sin `min` y `max`, o con `max` menor que `min`; id repetido; bloque
   aceptado sin `type` ni `tags`.
-- **Aviso**: `setting_type` que la referencia no lista (con la sugerencia más cercana); `default` que no está entre
+- **Aviso**: `setting_type` que la referencia no lista (con la sugerencia mas cercana); `default` que no está entre
   las opciones; `visible_if` o `disabled_if` que citan un setting que no existe; preset con un setting no declarado.
 
 Las claves que el validador no conoce no son error: la plataforma no publica un esquema y el editor puede aceptar
 claves nuevas. Los settings de layout que las sections usan sin declarar (`section_width`, `vertical_padding`,
 `horizontal_padding`) tampoco generan aviso. Para apagar la validación, `tiendanubeSnippets.validarSchema: false`.
 
-### Desarrollo
+## Requisitos
+
+- VS Code `>= 1.60.0`.
+
+## Desarrollo
 
 ```bash
 npm install
@@ -105,11 +103,14 @@ npm run empacotar    # genera el .vsix
 Los archivos de `snippets/` se generan desde `lib/` y `data/twig.json` con `node scripts/gerar.js`: no se editan a
 mano.
 
-## Contribuir · Licencia
+**Ramas y publicación.** Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merge de la rama entera `dev`, con tag de versión. No hay CI en GitHub: `npm run check` corre en tu máquina antes de cada merge.
 
-Abre un PR contra `dev` con Conventional Commits; la promoción a `main` es merge de la rama entera `dev`, con tag de
-versión.
+## Licencia
 
-[MIT](LICENSE). De dónde salen los datos, en [NOTICE](NOTICE).
+[MIT](./LICENSE). De dónde salen los datos, en [NOTICE](NOTICE).
+
+Contacto: hablecon@commente.me
+
+---
 
 _Hecho con amor y café por [zeluizr](https://github.com/zeluizr) y con la ayuda de [Claude](https://claude.ai/referral/Cz_UimA0NQ) ☕_
